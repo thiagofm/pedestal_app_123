@@ -9,9 +9,9 @@
   ;{:version 2
    ;:transform [[:set-value [:greeting] set-value-transform]]})
 
+(defn inc-transform [old-value _]
+  ((fnil inc 0) old-value))
+
 (def example-app
   {:version 2
    :transform [[:inc [:my-counter] inc-transform]]})
-
-(defn inc-transform [old-value _]
-  ((fnil inc 0) old-value))
